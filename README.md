@@ -15,4 +15,4 @@ This repository establishes the core framework for managing phase-driven actor i
 * **Architecture**: Fully modular C++ plugin design with Blueprint exposure.
 
 ---
-*For complete installation steps and a quick-start guide, please refer to the main setup instructions below.*
+*For complete installation steps and a quick-start guide, please refer to the README instructions.*
