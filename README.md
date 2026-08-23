@@ -1,36 +1,18 @@
-# DATA DRIVEN EVENT CONTROLLER (DDEC) v1.0
+# Data Driven Event Controller (DDEC)
 
-This plugin is designed to make actor calls by phases in an optimal and dynamic way, by defining specific variables in scene instances. Thanks to this plugin, you can place as many actors as you want in the scene and assign them a phase value. Thus, when a trigger is activated, only the functions of those actors belonging to the same phase will be called. The system is scalable and perfect for games that require constant changes in the scene as a consequence of player progression.
+Welcome to **Data Driven Event Controller (DDEC)** for Unreal Engine 5.8! 
 
-This plugin was developed and tested in version 5.8 (including subsequent hotfixes). Full compatibility with other engine versions cannot be guaranteed.
+This repository establishes the core framework for managing phase-driven actor interactions cleanly and efficiently through a decoupled C++ architecture.
 
----
+## 🚀 Key Architectural Highlights
+* **Core C++ Subsystem**: Utilizes a centralized `UEventManagerSubsystem` running on the GameInstance to handle component registration and phase dispatching globally.
+* **Event Components**: Features the `UEventComponent` to easily attach event-listening capabilities to any actor in your scene.
+* **Interface-Driven Logic**: Implements `IEventInterface` to safely invoke custom `UpdateEvent` functions on targeted owners.
+* **Ready-to-Use Blueprint Trigger**: Includes `BP_EventTrigger` to easily handle overlap-based or call-based scene events directly from the editor.
 
-## Plugin Contents
-
-* **C++:** Contains an interface, a subsystem, and a component, acting as managers.
-* **Blueprints:** Contains a `BP_EventTrigger`, which is the one you must place and parameterize in the scene for the system to work as desired.
-
----
-
-## Installation
-
-1. Download and extract the archive.
-2. Copy the `DataDrivenEventController` folder into your project's `Plugins` directory (create the `Plugins` folder at the project root if it does not exist).
-3. Open your project, navigate to **Edit -> Plugins**, locate `DataDrivenEventController`, ensure it is enabled, and restart the editor.
+## ⚙️ Technical Details & Requirements
+* **Engine Version**: Built and tested specifically on Unreal Engine 5.8.
+* **Architecture**: Fully modular C++ plugin design with Blueprint exposure.
 
 ---
-
-## Setup & Prerequisites
-
-Follow these steps to configure the system:
-
-1. In the Content Browser settings, enable **Show Plugin Content**, then navigate to `/DataDrivenEventController Content` folder.
-2. Place the `BP_EventTrigger` in your scene and parameterize it. Remember that each of the instances must have a different and ascending value in the `PhaseToCall` variable.
-3. In the actor you want to assign to a specific phase, add the `Event` Actor Component and implement the `EventInterface`.
-4. In this actor, implement the `UpdateEvent` interface function however you wish and place the instance in your scene.
-5. Remember to assign a value to the `Phase` variable of the `Event` component in your instance. The `UpdateEvent` will fire when the `BP_EventTrigger` is activated, provided its `PhaseToCall` variable has a value identical to the `Phase` variable of your actor.
-
----
-
-I hope this plugin helps you streamline and organize your work in Unreal!
+*For complete installation steps and a quick-start guide, please refer to the main setup instructions below.*
